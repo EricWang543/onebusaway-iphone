@@ -179,6 +179,8 @@
 		9368E5C01DB1584900C329D0 /* OBAEmptyDataSetSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9368E5BF1DB1584900C329D0 /* OBAEmptyDataSetSource.m */; };
 		936EB1C11E92F30C00F4F3A7 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936EB1BF1E92F30C00F4F3A7 /* OnboardingViewController.swift */; };
 		9373E70F1EA4084C0019C7CB /* OBATripDeepLink_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373E70E1EA4084C0019C7CB /* OBATripDeepLink_Tests.swift */; };
+		9377DD451EE0792A00134AE8 /* OBANPSRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9377DD441EE0792A00134AE8 /* OBANPSRow.m */; };
+		9377DD481EE0797200134AE8 /* OBANPSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9377DD471EE0797200134AE8 /* OBANPSCell.m */; };
 		9385EC3B1DCF14C60020CCB2 /* OBASettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9385EC3A1DCF14C60020CCB2 /* OBASettingsViewController.m */; };
 		9385EC401DCF1D910020CCB2 /* ServiceAlertDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9385EC3F1DCF1D910020CCB2 /* ServiceAlertDetailsViewController.swift */; };
 		93876DFB1E68AD3900B4343F /* OBAMapAnnotationViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 93876DFA1E68AD3900B4343F /* OBAMapAnnotationViewBuilder.m */; };
@@ -530,6 +532,10 @@
 		936F45D91C78D06600C61656 /* OneBusAwayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OneBusAwayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9373E70E1EA4084C0019C7CB /* OBATripDeepLink_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OBATripDeepLink_Tests.swift; sourceTree = "<group>"; };
 		9373E7101EA4087A0019C7CB /* OneBusAwayTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OneBusAwayTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		9377DD431EE0792A00134AE8 /* OBANPSRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBANPSRow.h; sourceTree = "<group>"; };
+		9377DD441EE0792A00134AE8 /* OBANPSRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBANPSRow.m; sourceTree = "<group>"; };
+		9377DD461EE0797200134AE8 /* OBANPSCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBANPSCell.h; sourceTree = "<group>"; };
+		9377DD471EE0797200134AE8 /* OBANPSCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBANPSCell.m; sourceTree = "<group>"; };
 		9385EC391DCF14C60020CCB2 /* OBASettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBASettingsViewController.h; sourceTree = "<group>"; };
 		9385EC3A1DCF14C60020CCB2 /* OBASettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBASettingsViewController.m; sourceTree = "<group>"; };
 		9385EC3F1DCF1D910020CCB2 /* ServiceAlertDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceAlertDetailsViewController.swift; sourceTree = "<group>"; };
@@ -766,6 +772,7 @@
 		934196E81DB0C13F004BBBB7 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				9377DD411EE078BF00134AE8 /* ratings */,
 				930CE4D81E9BFB440073F04D /* debugging */,
 				936EB1BB1E92F27400F4F3A7 /* onboarding */,
 				93F3F88C1E7A7B160025FC78 /* regional_alerts */,
@@ -1437,6 +1444,17 @@
 			path = onboarding;
 			sourceTree = "<group>";
 		};
+		9377DD411EE078BF00134AE8 /* ratings */ = {
+			isa = PBXGroup;
+			children = (
+				9377DD431EE0792A00134AE8 /* OBANPSRow.h */,
+				9377DD441EE0792A00134AE8 /* OBANPSRow.m */,
+				9377DD461EE0797200134AE8 /* OBANPSCell.h */,
+				9377DD471EE0797200134AE8 /* OBANPSCell.m */,
+			);
+			path = ratings;
+			sourceTree = "<group>";
+		};
 		93A6E5211E6CB23500BEFECE /* ISHHoverBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1722,12 +1740,14 @@
 				9341978C1DB0C140004BBBB7 /* RegionBuilderViewController.swift in Sources */,
 				933546DD1E834ABE00D83519 /* OBAMessageRow.m in Sources */,
 				934197871DB0C140004BBBB7 /* OBACreditsViewController.m in Sources */,
+				9377DD451EE0792A00134AE8 /* OBANPSRow.m in Sources */,
 				934197991DB0C140004BBBB7 /* OBATableViewCell.m in Sources */,
 				934197921DB0C140004BBBB7 /* OBADiversionViewController.m in Sources */,
 				934198211DB0C1BA004BBBB7 /* OBATextFieldTableViewCell.m in Sources */,
 				934197821DB0C140004BBBB7 /* OBAEditStopBookmarkViewController.m in Sources */,
 				9341982C1DB0C1D6004BBBB7 /* main.m in Sources */,
 				934C50AE1E2B6D5B00DFDCA0 /* OBAPushManager.m in Sources */,
+				9377DD481EE0797200134AE8 /* OBANPSCell.m in Sources */,
 				9341978D1DB0C140004BBBB7 /* RegionListViewController.swift in Sources */,
 				934197B41DB0C140004BBBB7 /* OBAAnimation.m in Sources */,
 				934197841DB0C140004BBBB7 /* OBABookmarkedRouteRow.m in Sources */,
