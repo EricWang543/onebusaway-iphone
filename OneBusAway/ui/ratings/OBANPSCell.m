@@ -23,7 +23,7 @@
 
         UIImageView *imageView = [self.class buildImageView];
         UILabel *label = [self.class buildLabel];
-        UIStackView *buttonStack = [self.class buildButtonStack];
+        UIStackView *buttonStack = [self buildButtonStack];
 
         UIStackView *rightStack = [[UIStackView alloc] initWithArrangedSubviews:@[label, buttonStack]];
         rightStack.axis = UILayoutConstraintAxisVertical;
@@ -66,17 +66,41 @@
     return label;
 }
 
-+ (UIStackView*)buildButtonStack {
+- (UIStackView*)buildButtonStack {
     UIButton *notNowButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [notNowButton setTitle:@"Not Now" forState:UIControlStateNormal]; //I18N
+    [notNowButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
 
-    UIButton *giveFeedbackButton = [OBAUIBuilder borderedButtonWithTitle:@"Give Feedback"]; // I18N
+    UIButton *giveFeedbackButton = [OBAUIBuilder borderedButtonWithColor:OBATheme.OBAGreen];
+    [giveFeedbackButton setTitle:@"Give Feedback" forState:UIControlStateNormal]; // I18N
+    [giveFeedbackButton addTarget:self action:@selector(giveFeedback) forControlEvents:UIControlEventTouchUpInside];
+    giveFeedbackButton.titleLabel.font = notNowButton.titleLabel.font;
 
     UIStackView *stack = [[UIStackView alloc] initWithArrangedSubviews:@[notNowButton, giveFeedbackButton]];
     stack.axis = UILayoutConstraintAxisHorizontal;
     stack.spacing = OBATheme.defaultPadding;
 
     return stack;
+}
+
+#pragma mark - Actions
+
+- (void)dismiss {
+    if (self.NPSRow.dismissRowBlock) {
+        self.NPSRow.dismissRowBlock(self.NPSRow);
+    }
+}
+
+- (void)giveFeedback {
+    if (self.NPSRow.action) {
+        self.NPSRow.action(self.NPSRow);
+    }
+}
+
+#pragma mark - Table Data
+
+- (OBANPSRow*)NPSRow {
+    return (OBANPSRow*)self.tableRow;
 }
 
 @end

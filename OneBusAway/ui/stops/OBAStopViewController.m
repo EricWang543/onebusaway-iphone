@@ -208,11 +208,8 @@ static NSInteger kStopsSectionTag = 101;
 
     NSMutableArray *sections = [NSMutableArray array];
 
-    if (YES) {
-        OBANPSRow *npsRow = [[OBANPSRow alloc] initWithAction:^(OBABaseRow *row) {
-            //
-        }];
-        OBATableSection *section = [[OBATableSection alloc] initWithTitle:nil rows:@[npsRow]];
+    if ([self shouldDisplayNPSRow]) {
+        OBATableSection *section = [self buildNPSTableSection];
         [sections addObject:section];
     }
 
@@ -625,6 +622,32 @@ static NSInteger kStopsSectionTag = 101;
 
 - (id)activityViewControllerPlaceholderItem:(UIActivityViewController *)activityViewController {
     return @"";
+}
+
+#pragma mark - NPS
+
+- (OBATableSection*)buildNPSTableSection {
+    OBANPSRow *npsRow = [[OBANPSRow alloc] initWithAction:^(OBABaseRow *row) {
+        //
+    }];
+    [npsRow setDismissRowBlock:^(OBANPSRow *row){
+        NSIndexPath *indexPath = [self indexPathForRow:row];
+        [self deleteRowAtIndexPath:indexPath];
+    }];
+    [npsRow setDeleteModel:^(OBABaseRow *row){
+        [self userDismissedNPSRow];
+    }];
+    OBATableSection *section = [[OBATableSection alloc] initWithTitle:nil rows:@[npsRow]];
+
+    return section;
+}
+
+- (BOOL)shouldDisplayNPSRow {
+    return YES;
+}
+
+- (void)userDismissedNPSRow {
+    //
 }
 
 #pragma mark - Table Header

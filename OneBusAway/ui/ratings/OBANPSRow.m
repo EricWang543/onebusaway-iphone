@@ -14,6 +14,7 @@
 
 - (id)copyWithZone:(NSZone *)zone {
     OBANPSRow *newRow = [super copyWithZone:zone];
+    newRow->_dismissRowBlock = [_dismissRowBlock copyWithZone:zone];
 
     return newRow;
 }
