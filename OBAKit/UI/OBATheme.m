@@ -154,6 +154,10 @@ static UIFont *_italicFootnoteFont = nil;
     return [OBATheme colorWithRed:255 green:255 blue:128 alpha:0.7f];
 }
 
++ (UIColor*)calloutBackgroundColor {
+    return [OBATheme colorWithRed:255 green:255 blue:245 alpha:1.f];
+}
+
 + (UIColor*)nonOpaquePrimaryColor {
     return [self colorWithRed:152 green:216 blue:69 alpha:0.8f];
 }

@@ -137,6 +137,11 @@
 @property(class,nonatomic,copy,readonly) UIColor *propertyChangedColor;
 
 /**
+ Used as the background for the user rating cell. Use this to subtly draw attention to a piece of UI.
+ */
+@property(class,nonatomic,copy,readonly) UIColor *calloutBackgroundColor;
+
+/**
  The standard highlight color with a less-than-100% opacity. By default, this is a dark green color.
 
  @return A UIColor.

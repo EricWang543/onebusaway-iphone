@@ -28,6 +28,7 @@
 #import "OBAWalkableRow.h"
 #import "GKActionSheetPicker.h"
 #import "OBAPushManager.h"
+#import "OBANPSRow.h"
 
 static NSTimeInterval const kRefreshTimeInterval = 30.0;
 static CGFloat const kTableHeaderHeight = 150.f;
@@ -206,6 +207,14 @@ static NSInteger kStopsSectionTag = 101;
     }
 
     NSMutableArray *sections = [NSMutableArray array];
+
+    if (YES) {
+        OBANPSRow *npsRow = [[OBANPSRow alloc] initWithAction:^(OBABaseRow *row) {
+            //
+        }];
+        OBATableSection *section = [[OBATableSection alloc] initWithTitle:nil rows:@[npsRow]];
+        [sections addObject:section];
+    }
 
     // Toggle showing/hiding filtered routes.
     if ([self.routeFilter hasFilteredRoutes]) {
