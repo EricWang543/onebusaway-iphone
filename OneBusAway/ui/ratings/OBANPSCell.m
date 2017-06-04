@@ -19,7 +19,7 @@
 
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.backgroundColor = [UIColor darkGrayColor];//OBATheme.calloutBackgroundColor;
+        self.backgroundColor = OBATheme.calloutBackgroundColor;
 
         UIImageView *imageView = [self.class buildImageView];
         UILabel *label = [self.class buildLabel];
