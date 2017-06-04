@@ -19,7 +19,7 @@
 
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.backgroundColor = OBATheme.calloutBackgroundColor;
+        self.backgroundColor = [UIColor darkGrayColor];//OBATheme.calloutBackgroundColor;
 
         UIImageView *imageView = [self.class buildImageView];
         UILabel *label = [self.class buildLabel];
@@ -71,14 +71,19 @@
     [notNowButton setTitle:@"Not Now" forState:UIControlStateNormal]; //I18N
     [notNowButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
 
-    UIButton *giveFeedbackButton = [OBAUIBuilder borderedButtonWithColor:OBATheme.OBAGreen];
-    [giveFeedbackButton setTitle:@"Give Feedback" forState:UIControlStateNormal]; // I18N
+    // I18N
+    BorderedButton *giveFeedbackButton = [[BorderedButton alloc] initWithBorderColor:OBATheme.OBAGreen title:@"Give Feedback"];
     [giveFeedbackButton addTarget:self action:@selector(giveFeedback) forControlEvents:UIControlEventTouchUpInside];
     giveFeedbackButton.titleLabel.font = notNowButton.titleLabel.font;
+    [giveFeedbackButton setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
 
-    UIStackView *stack = [[UIStackView alloc] initWithArrangedSubviews:@[notNowButton, giveFeedbackButton]];
+    UIView *spacerView = [UIView new];
+    [spacerView setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+
+    UIStackView *stack = [[UIStackView alloc] initWithArrangedSubviews:@[spacerView, notNowButton, giveFeedbackButton]];
     stack.axis = UILayoutConstraintAxisHorizontal;
     stack.spacing = OBATheme.defaultPadding;
+
 
     return stack;
 }
